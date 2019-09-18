@@ -481,7 +481,7 @@ void printLevelOrder() {
 int main() {
 RBTree tree;
 
-int tamArreglo, delVal, cant;
+int tamArreglo, delVal, cant, newVal;
 int tamRand = 10000;
 
 cout << "Inserta el tamaño del arreglo" << endl;
@@ -511,19 +511,51 @@ for (size_t i = 0; i < n; i++) {
 tree.printInOrder();
 tree.printLevelOrder();
 
-/*
-tree.deleteByVal(18);
-tree.deleteByVal(11);
-tree.deleteByVal(3);
-tree.deleteByVal(10);
-tree.deleteByVal(22);
-*/
+/****************************************Inserta valores************************************************/
+
+cout << "Cuántos valores deseas añadir?" << endl;
+cin >> cant;
+cout << "\n";
+
+if (cant == 1) {
+  for (int i = 0; i < cant; i++) {
+
+  	cout << "Inserta un valor" << '\n';
+  	cin >> newVal;
+  	cout << "\n";
+
+  	tree.insert(newVal);
+
+  }
+}
+
+for (int i = 0; i < cant; i++) {
+
+	cout << "Inserta un valor" << '\n';
+	cin >> newVal;
+	cout << "\n";
+
+	tree.insert(newVal);
+
+}
+
+/*************************************Borra variables*****************************************************/
 
 cout << "Cuántos valores deseas borrar?" << endl;
 cin >> cant;
 cout << "\n";
 
-cant = cant * 2;
+if (cant == 1) {
+  for (int i = 0; i < cant; i++) {
+
+  	cout << "Inserta un valor" << '\n';
+  	cin >> delVal;
+  	cout << "\n";
+
+  	tree.deleteByVal(delVal);
+
+  }
+}
 
 for (int i = 0; i < cant; i++) {
 
@@ -543,6 +575,8 @@ auto stop = high_resolution_clock::now();
 auto durationSeg = duration_cast<seconds>(stop-start);
 auto durationMilli = duration_cast<milliseconds>(stop-start);
 auto durationMicro = duration_cast<microseconds>(stop-start);
+
+cout << "\n";
 
 cout << "Le tomo " << durationSeg.count() << " segundos\n";
 cout << "Le tomo " << durationMilli.count() << " milisegundos\n";
