@@ -541,7 +541,12 @@ void Buscar(int arr[], int tamArreglo, int buscado){
 int main() {
 RBTree tree;
 
+<<<<<<< HEAD
 int tamArreglo, delVal, cant, newVal, tamRand, opcion, buscado;
+=======
+int tamArreglo, delVal, cant, newVal;
+int tamRand = 10000;
+>>>>>>> ea10aea3cef1197297dcb443c6f6a3a9d7cf1b92
 
 tamRand = 100000;
 tamArreglo = 100000;
@@ -568,13 +573,59 @@ for (size_t i = 0; i < tamArreglo; i++) {
 
 while (1) {
 
+<<<<<<< HEAD
 	cout << "\n1) Imprimir árbol\n2) Insertar valores\n3) Borrar valores\n4) Buscar valores\n5) Imprimir arreglo en orden ascendente\n6) Imprimir arreglo en orden descendente\n7) Salir\n" << endl;
 	cin >> opcion;
 	cout << "\n";
+=======
+/****************************************Inserta valores************************************************/
+
+cout << "Cuántos valores deseas añadir?" << endl;
+cin >> cant;
+cout << "\n";
+
+if (cant == 1) {
+  for (int i = 0; i < cant; i++) {
+
+  	cout << "Inserta un valor" << '\n';
+  	cin >> newVal;
+  	cout << "\n";
+
+  	tree.insert(newVal);
+
+  }
+}
+
+for (int i = 0; i < cant; i++) {
+
+	cout << "Inserta un valor" << '\n';
+	cin >> newVal;
+	cout << "\n";
+
+	tree.insert(newVal);
+
+}
+
+/*************************************Borra variables*****************************************************/
+>>>>>>> ea10aea3cef1197297dcb443c6f6a3a9d7cf1b92
 
 	switch (opcion) {
 
+<<<<<<< HEAD
 		case 1:
+=======
+if (cant == 1) {
+  for (int i = 0; i < cant; i++) {
+
+  	cout << "Inserta un valor" << '\n';
+  	cin >> delVal;
+  	cout << "\n";
+
+  	tree.deleteByVal(delVal);
+
+  }
+}
+>>>>>>> ea10aea3cef1197297dcb443c6f6a3a9d7cf1b92
 
 		tree.printInOrder();
 		tree.printLevelOrder();
@@ -691,6 +742,14 @@ while (1) {
 
 }
 
+<<<<<<< HEAD
+=======
+cout << "\n";
+
+cout << "Le tomo " << durationSeg.count() << " segundos\n";
+cout << "Le tomo " << durationMilli.count() << " milisegundos\n";
+cout << "Le tomo " << durationMicro.count() << " microsegundos\n";
+>>>>>>> ea10aea3cef1197297dcb443c6f6a3a9d7cf1b92
 
 return 0;
 
