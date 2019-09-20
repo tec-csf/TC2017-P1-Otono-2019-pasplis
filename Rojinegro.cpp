@@ -478,15 +478,73 @@ void printLevelOrder() {
 }
 };
 
+void Ascendente(int arr[], int tamArreglo){
+
+	sort(arr, arr + tamArreglo);
+
+	cout << "El arreglo en orden ascendente es " << endl;
+
+	for (int i = 0; i < tamArreglo; ++i){
+        cout << arr[i] << " ";
+		}
+
+		cout << "\n";
+
+};
+
+void Descendente(int arr[], int tamArreglo){
+
+	sort(arr, arr+tamArreglo, greater<>());
+
+	cout << "El arreglo en orden ascendente es " << endl;
+
+	for (int i = 0; i < tamArreglo; ++i){
+        cout << arr[i] << " ";
+		}
+
+		cout << "\n";
+
+};
+
+void Buscar(int arr[], int tamArreglo, int buscado){
+
+	sort(arr, arr + tamArreglo);
+
+	bool res = false;
+	int i = 0;
+
+	while (i < tamArreglo && res != true) {
+		if (arr[i] == buscado) {
+
+			res = true;
+
+		}
+		else{
+
+			i++;
+
+		}
+	}
+
+	if (arr[i] == buscado) {
+		cout << "El valor " << buscado << " si se encuentra en el árbol" << '\n';
+	} else{
+
+		cout << "El valor " << buscado << " no se encuentra en el árbol" << '\n';
+
+	}
+
+	cout << "\n" << '\n';
+
+};
+
 int main() {
 RBTree tree;
 
-int tamArreglo, delVal, cant;
-int tamRand = 10000;
+int tamArreglo, delVal, cant, newVal, tamRand, opcion, buscado;
 
-cout << "Inserta el tamaño del arreglo" << endl;
-cin >> tamArreglo;
-cout << "\n";
+tamRand = 100000;
+tamArreglo = 100000;
 
 tamArreglo = tamArreglo * 2;
 
@@ -504,49 +562,136 @@ for (int cont = 0; cont < tamArreglo; cont++) {
 
 int n = sizeof(arr)/sizeof(arr[0]);
 
-for (size_t i = 0; i < n; i++) {
+for (size_t i = 0; i < tamArreglo; i++) {
 	tree.insert(arr[i++]);
 }
 
-tree.printInOrder();
-tree.printLevelOrder();
+while (1) {
 
-/*
-tree.deleteByVal(18);
-tree.deleteByVal(11);
-tree.deleteByVal(3);
-tree.deleteByVal(10);
-tree.deleteByVal(22);
-*/
-
-cout << "Cuántos valores deseas borrar?" << endl;
-cin >> cant;
-cout << "\n";
-
-cant = cant * 2;
-
-for (int i = 0; i < cant; i++) {
-
-	cout << "Inserta un valor" << '\n';
-	cin >> delVal;
+	cout << "\n1) Imprimir árbol\n2) Insertar valores\n3) Borrar valores\n4) Buscar valores\n5) Imprimir arreglo en orden ascendente\n6) Imprimir arreglo en orden descendente\n7) Salir\n" << endl;
+	cin >> opcion;
 	cout << "\n";
 
-	tree.deleteByVal(delVal);
+	switch (opcion) {
+
+		case 1:
+
+		tree.printInOrder();
+		tree.printLevelOrder();
+
+		break;
+
+		case 2:
+
+		cout << "Cuántos valores deseas añadir?" << endl;
+		cin >> cant;
+		cout << "\n";
+
+		if (cant == 1) {
+		  for (int i = 0; i < cant; i++) {
+
+		  	cout << "Inserta un valor" << '\n';
+		  	cin >> newVal;
+		  	cout << "\n";
+
+		  	tree.insert(newVal);
+
+		  }
+		}
+
+		for (int i = 0; i < cant; i++) {
+
+			cout << "Inserta un valor" << '\n';
+			cin >> newVal;
+			cout << "\n";
+
+			tree.insert(newVal);
+
+		}
+
+		break;
+
+		case 3:
+
+		cout << "Cuántos valores deseas borrar?" << endl;
+		cin >> cant;
+		cout << "\n";
+
+		if (cant == 1) {
+		  for (int i = 0; i < cant; i++) {
+
+		  	cout << "Inserta el valor que se va a borrar" << '\n';
+		  	cin >> delVal;
+		  	cout << "\n";
+
+		  	tree.deleteByVal(delVal);
+
+		  }
+		}
+
+		for (int i = 0; i < cant; i++) {
+
+			cout << "Inserta el valor que se va a borrar" << '\n';
+			cin >> delVal;
+			cout << "\n";
+
+			tree.deleteByVal(delVal);
+
+		}
+
+		break;
+
+		case 4:
+
+		cout << "Que valor desea buscar?" << '\n';
+
+		cin >> buscado;
+
+		cout << '\n';
+
+		Buscar(arr, tamArreglo, buscado);
+
+
+		break;
+
+		case 5:
+
+			Ascendente(arr, tamArreglo);
+
+		break;
+
+		case 6:
+
+			Descendente(arr, tamArreglo);
+
+		break;
+
+		case 7:
+			exit(1);
+		break;
+
+		default:
+			cout << "It works" << '\n';
+		break;
+	}
+
+	auto stop = high_resolution_clock::now();
+
+	auto durationSeg = duration_cast<seconds>(stop-start);
+	auto durationMilli = duration_cast<milliseconds>(stop-start);
+	auto durationMicro = duration_cast<microseconds>(stop-start);
+
+	cout << "\n";
+
+	cout << "Le tomo " << durationSeg.count() << " segundos\n";
+	cout << "Le tomo " << durationMilli.count() << " milisegundos\n";
+	cout << "Le tomo " << durationMicro.count() << " microsegundos\n";
+
+	cout << "\n";
 
 }
 
-tree.printInOrder();
-tree.printLevelOrder();
-
-auto stop = high_resolution_clock::now();
-
-auto durationSeg = duration_cast<seconds>(stop-start);
-auto durationMilli = duration_cast<milliseconds>(stop-start);
-auto durationMicro = duration_cast<microseconds>(stop-start);
-
-cout << "Le tomo " << durationSeg.count() << " segundos\n";
-cout << "Le tomo " << durationMilli.count() << " milisegundos\n";
-cout << "Le tomo " << durationMicro.count() << " microsegundos\n";
 
 return 0;
+
 }
