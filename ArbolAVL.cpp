@@ -1,3 +1,12 @@
+/*
+ *	Código modificado por Daniel Roa
+ *	A01021960
+ *	Fecha de entrega: 23/septiembre/2019
+ *
+ * 	Obtenido de https://rosettacode.org/wiki/AVL_tree#C.2B.2B
+ *
+ */
+
 #include <algorithm>
 #include <iostream>
 #include <stdio.h>
@@ -362,9 +371,11 @@ int main()
         t.insert(arr[i++]);
     }
 
+		/*
+
     t.printBalance();
 
-    cout << "\n";
+		cout << "\n" << '\n';
 
     cout << "Cuántos valores deseas añadir?" << endl;
     cin >> cant;
@@ -390,6 +401,8 @@ int main()
         t.insert(newVal);
     }
 
+		cout << "\n" << '\n';
+
     cout << "Cuántos valores deseas borrar?" << endl;
     cin >> cant;
     cout << "\n";
@@ -411,10 +424,24 @@ int main()
         cin >> delVal;
         cout << "\n";
 
-        //root = deleteNode(root, delVal);
+        deleteKey(root, delVal);
     }
 
-    for (int i = 0; i < tamArregloB; i++) {
+		cout << "\n" << '\n';
+
+    cout << "\n" << '\n';
+
+    Ascendente(arr, tamArreglo);
+
+		cout << "\n" << '\n';
+
+    Descendente(arr, tamArreglo);
+
+		*/
+
+		cout << "\n" << '\n';
+
+		for (int i = 0; i < tamArregloB; i++) {
 
         arrBuscable[i] = (rand() % tamRand) + 1;
 
@@ -424,10 +451,6 @@ int main()
 
         Buscar(arr, tamArreglo, valPerd);
     }
-
-    Ascendente(arr, tamArreglo);
-
-    Descendente(arr, tamArreglo);
 
     cout << "\n";
 
