@@ -1,6 +1,6 @@
 /*
- *	Código modificado por Daniel Roa
- *	A01021960
+ *	Código modificado por Daniel Roa y Christian Dalma
+ *	A01021960, A01423166
  *	Fecha de entrega: 23/septiembre/2019
  *
  * 	Obtenido de https://rosettacode.org/wiki/AVL_tree#C.2B.2B
@@ -346,17 +346,17 @@ int main()
     int tamArreglo, delVal, cant, newVal, tamRand, opcion, buscado, tamArregloB;
 
     tamRand = 100000;
-    tamArreglo = 100000;
+    tamArreglo = 50000;
 
     tamArregloB = 10;
 
-    tamArreglo = tamArreglo * 2;
+		tamArreglo = tamArreglo * 2;
 
     int arr[tamArreglo];
 
-    int arrBuscable[tamArregloB];
+		int arrBuscable[10] = { 51215, 17258, 21173, 79491, 71900, 20035, 81300, 98, 19, 6110 };
 
-    srand((unsigned)time(0));
+		srand((unsigned)time(0));
 
     auto start = high_resolution_clock::now();
 
@@ -442,8 +442,6 @@ int main()
 		cout << "\n" << '\n';
 
 		for (int i = 0; i < tamArregloB; i++) {
-
-        arrBuscable[i] = (rand() % tamRand) + 1;
 
         int valPerd = arrBuscable[i];
 

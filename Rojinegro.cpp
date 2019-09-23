@@ -1,6 +1,6 @@
 /*
- *	Código modificado por Daniel Roa
- *	A01021960
+ *	Código modificado por Daniel Roa y Christian Dalma
+ *	A01021960, A01423166
  *	Fecha de entrega: 23/septiembre/2019
  *
  * 	Obtenido de https://www.geeksforgeeks.org/red-black-tree-set-3-delete-2/
@@ -647,7 +647,7 @@ int main()
     int tamArreglo, delVal, cant, newVal, tamRand, opcion, buscado, tamArregloB;
 
     tamRand = 100000;
-    tamArreglo = 100000;
+    tamArreglo = 50000;
 
     tamArregloB = 10;
 
